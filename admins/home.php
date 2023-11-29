@@ -26,12 +26,10 @@
             <?php 
             
             $id = $_SESSION['id'];
-            $query = mysqli_query($con,"SELECT*FROM users WHERE Id=$id");
+            $query = mysqli_query($con,"select * from userinfo where Id=$id");
 
             while($result = mysqli_fetch_assoc($query)){
                 $res_Uname = $result['Username'];
-                $res_Email = $result['Email'];
-                $res_Age = $result['Age'];
                 $res_id = $result['Id'];
             }
             
@@ -53,6 +51,24 @@
                 <div class="box">
                     <p>Choose any to edit existing or add new.</p> 
                 </div>
+            </div>
+        </div>
+        <div class="main-box">
+            <div class="box">
+                <p>Choose to edit the details of categories: </p> 
+                <button><a href="..\categories\edit.php"></a></button>
+            </div>
+            <div class="box">
+                <p>Choose to add new categories: </p> 
+                <button><a href="..\categories\register.php"></a></button>
+            </div>
+            <div class="box">
+                <p>Choose to edit the details of products: </p> 
+                <button><a href="..\products\edit.php"></a></button>
+            </div>
+            <div class="box">
+                <p>Choose to add new products: </p> 
+                <button><a href="..\products\register.php"></a></button>
             </div>
         </div>
     </main>

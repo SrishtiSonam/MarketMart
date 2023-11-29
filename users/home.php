@@ -24,22 +24,18 @@
         <div class="right-links">
 
             <?php 
-            
             $id = $_SESSION['id'];
             $query = mysqli_query($con,"SELECT*FROM users WHERE Id=$id");
-
             while($result = mysqli_fetch_assoc($query)){
                 $res_Uname = $result['Username'];
                 $res_Email = $result['Email'];
                 $res_Age = $result['Age'];
                 $res_id = $result['Id'];
             }
-            
             echo "<a href='edit.php?Id=$res_id'>Change Profile</a>";
             ?>
 
             <a href="php/logout.php"> <button class="btn">Log Out</button> </a>
-
         </div>
     </div>
     <main>
@@ -53,6 +49,16 @@
                 <div class="box">
                     <p>Choose any option and start shopping..</p> 
                 </div>
+            </div>
+        </div>
+        <div class="main-box">
+            <div class="box">
+                <p>Choose to view categories: </p> 
+                <button><a href="..\categories\home.php"></a></button>
+            </div>
+            <div class="box">
+                <p>Choose to view products: </p> 
+                <button><a href="..\products\home.php"></a></button>
             </div>
         </div>
     </main>
