@@ -32,16 +32,15 @@
                 $res_Uname = $result['Username'];
                 $res_id = $result['Id'];
             }
-            
             echo "<a href='edit.php?Id=$res_id'>Change Profile</a>";
             ?>
-
             <a href="php/logout.php"> <button class="btn">Log Out</button> </a>
 
         </div>
     </div>
+
     <main>
-        <div class="main-box top">
+        <div class="box">
             <div class="top">
                 <div class="box">
                     <p>Hello <b><?php echo $res_Uname ?></b>, Welcome</p>
@@ -53,6 +52,8 @@
                 </div>
             </div>
         </div>
+    </main>
+    <main>
         <div class="main-box">
             <div class="box">
                 <p>Choose to edit the details of categories: </p> 

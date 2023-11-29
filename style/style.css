@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
 *{
     padding: 0;
     margin: 0;
@@ -100,7 +99,7 @@ main{
     margin-top: 60px;
 }
 .main-box{
-    display: flex;
+    display: flex; 
     flex-direction: column;
     width: 70%;
 }
@@ -113,6 +112,7 @@ main{
     width: 100%;
     margin-top: 20px;
 }
+
 @media only screen and (max-width:840px){
     .main-box .top{
         display: flex;

@@ -15,12 +15,11 @@
          
          include("../php/config.php");
          if(isset($_POST['submit'])){
-            $adminpos = $_POST['adminpos'];
+            $username = $_POST['Username'];
             $firstname = $_POST['firstname'];
             $lastname = $_POST['lastname'];
             $email = $_POST['email'];
             $password = $_POST['password'];
-            $category = 'a';
             $verify_query = mysqli_query($con,"select * from admininfo where email='$email'");
          if(mysqli_num_rows($verify_query) !=0 ){
             echo "<div class='message'>
@@ -29,8 +28,7 @@
             echo "<a href='javascript:self.history.back()'><button class='btn'>Go Back</button>";
          }
          else{
-            mysqli_query($con,"insert into admininfo (adminposition,firstname,lastname,email) values ('$adminposition','$firstname','$lastname','$email')") or die("Erroe Occured");
-            mysqli_query($con,"insert into admininfo (email,password,category) values ('$email','$password','$category')") or die("Erroe Occured");
+            mysqli_query($con,"insert into admininfo (username,firstname,lastname,email,password) values ('$username','$firstname','$lastname','$email','$password')") or die("Erroe Occured");
             echo "<div class='message'>
                       <p>Registration successfully!</p>
                   </div> <br>";
@@ -46,8 +44,8 @@
             <header>Sign Up</header>
             <form action="" method="post">
                 <div class="field input">
-                    <label for="adminpos">Admin Position</label>
-                    <input type="text" name="adminpos" id="adminpos" autocomplete="off" required>
+                    <label for="Username">Designation</label>
+                    <input type="text" name="Username" id="Username" autocomplete="off" required>
                 </div>
                 <div class="field input">
                     <label for="firstname">Firstname</label>

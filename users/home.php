@@ -25,7 +25,7 @@
 
             <?php 
             $id = $_SESSION['id'];
-            $query = mysqli_query($con,"SELECT*FROM users WHERE Id=$id");
+            $query = mysqli_query($con,"select * from userinfo where Id=$id");
             while($result = mysqli_fetch_assoc($query)){
                 $res_Uname = $result['Username'];
                 $res_Email = $result['Email'];
@@ -39,7 +39,7 @@
         </div>
     </div>
     <main>
-        <div class="main-box top">
+        <div class = "box">
             <div class="top">
                 <div class="box">
                     <p>Hello <b><?php echo $res_Uname ?></b>, Welcome</p>
@@ -51,15 +51,15 @@
                 </div>
             </div>
         </div>
-        <div class="main-box">
-            <div class="box">
-                <p>Choose to view categories: </p> 
-                <button><a href="..\categories\home.php"></a></button>
-            </div>
-            <div class="box">
-                <p>Choose to view products: </p> 
-                <button><a href="..\products\home.php"></a></button>
-            </div>
+    </main>
+    <main>
+        <div class="box">
+            <p>Choose to view categories: </p> 
+            <button><a href="..\categories\home.php"></a></button>
+        </div>
+        <div class="box">
+            <p>Choose to view products: </p> 
+            <button><a href="..\products\home.php"></a></button>
         </div>
     </main>
 </body>
