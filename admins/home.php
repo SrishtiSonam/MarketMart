@@ -18,7 +18,7 @@
 <body>
     <div class="nav">
         <div class="logo">
-            <p><a href="home.php">Logo</a> </p>
+            <p><a href="home.php">MarketMart</a> </p>
         </div>
 
         <div class="right-links">
@@ -26,7 +26,7 @@
             <?php 
             
             $id = $_SESSION['id'];
-            $query = mysqli_query($con,"select * from userinfo where Id=$id");
+            $query = mysqli_query($con,"select * from admininfo where Id=$id");
 
             while($result = mysqli_fetch_assoc($query)){
                 $res_Uname = $result['Username'];
@@ -34,7 +34,7 @@
             }
             echo "<a href='edit.php?Id=$res_id'>Change Profile</a>";
             ?>
-            <a href="php/logout.php"> <button class="btn">Log Out</button> </a>
+            <a href="../php/logout.php"> <button class="btn">Log Out</button> </a>
 
         </div>
     </div>
@@ -55,21 +55,23 @@
     </main>
     <main>
         <div class="main-box">
-            <div class="box">
-                <p>Choose to edit the details of categories: </p> 
-                <button><a href="..\categories\edit.php"></a></button>
+            <div class="box"> 
+                <button><a href="..\categories\home.php"><p>Choose to view the details of categories: </p></a></button>
             </div>
             <div class="box">
-                <p>Choose to add new categories: </p> 
-                <button><a href="..\categories\register.php"></a></button>
+                <button><a href="..\categories\register.php"><p>Choose to add new categories: </p> </a></button>
             </div>
             <div class="box">
-                <p>Choose to edit the details of products: </p> 
-                <button><a href="..\products\edit.php"></a></button>
+                <button><a href="..\categories\delete.php"><p>Choose to delete a categories: </p> </a></button>
             </div>
-            <div class="box">
-                <p>Choose to add new products: </p> 
-                <button><a href="..\products\register.php"></a></button>
+            <div class="box"> 
+                <button><a href="..\products\home.php"><p>Choose to view the details of products: </p></a></button>
+            </div>
+            <div class="box"> 
+                <button><a href="..\products\register.php"><p>Choose to add new products: </p></a></button>
+            </div>
+            <div class="box"> 
+                <button><a href="..\products\delete.php"><p>Choose to delete a products: </p></a></button>
             </div>
         </div>
     </main>

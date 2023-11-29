@@ -112,7 +112,23 @@ main{
     width: 100%;
     margin-top: 20px;
 }
-
+.Mytable th {
+    background-color: #9904aa86;
+    color: white;
+    padding: 0.5rem;
+  }
+.Mytable tr{
+    margin:2rem;
+}
+.Mytable tr:hover {background-color: rgba(80, 235, 255, 0.476);}
+.Mytable td {
+    padding:1rem; 
+}
+.Mytable{
+    padding-top: 2rem;
+    text-align: center;
+    margin: auto;
+}
 @media only screen and (max-width:840px){
     .main-box .top{
         display: flex;

@@ -12,7 +12,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../style/style.css">
-    <title>Products</title>
+    <title>Order Bill</title>
 </head>
 <body>
     <div class="nav">
@@ -27,33 +27,22 @@
        <div class="main-box top">
           <div class="top">
             <div class="box">
-                <p><b>Let the Shopping Begin</b></p>
+                <p><b>Your bill is here: </b></p>
             </div>
           </div>
           <div class="bottom">
-            <div class="box">
-                <p>We have following products:- </p> 
-            </div>
                 <?php
-                    $result = mysqli_query($con, "select * from products");
-                    echo "<table class='Mytable'>";
+                    $result = mysqli_query($con, "select * from requests");
+                    echo "<table class='Billtable'>";
                     echo "<tr>
-                        <th>ID</th>
-                        <th>Product ID</th>
-                        <th>Product Name</th>
-                        <th>Category ID</th>
-                        <th>Price</th>
-                        <th>Discription</th>
-                        <th>Quantity</th>
-                        </tr>";
+                    <th>ID</th>
+                    <th>Product ID</th>
+                    <th>Quantity</th>
+                    </tr>";
                     while ($row = mysqli_fetch_assoc($result)) {
                         echo "<tr>
                         <td>{$row['Id']}</td>
                         <td>{$row['productid']}</td>
-                        <td>{$row['productname']}</td>
-                        <td>{$row['categoryid']}</td>
-                        <td>{$row['price']}</td>
-                        <td>{$row['discription']}</td>
                         <td>{$row['quantity']}</td>
                         </tr>";
                     }
@@ -61,7 +50,9 @@
                 ?>
           </div>
        </div>
-
     </main>
+    <?php
+        mysqli_query($con, "delete from requests");
+    ?>
 </body>
 </html>

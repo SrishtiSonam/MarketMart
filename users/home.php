@@ -18,11 +18,9 @@
 <body>
     <div class="nav">
         <div class="logo">
-            <p><a href="home.php">Logo</a> </p>
+            <p><a href="home.php">MarketMart</a> </p>
         </div>
-
         <div class="right-links">
-
             <?php 
             $id = $_SESSION['id'];
             $query = mysqli_query($con,"select * from userinfo where Id=$id");
@@ -34,8 +32,7 @@
             }
             echo "<a href='edit.php?Id=$res_id'>Change Profile</a>";
             ?>
-
-            <a href="php/logout.php"> <button class="btn">Log Out</button> </a>
+            <a href="../php/logout.php"> <button class="btn">Log Out</button> </a>
         </div>
     </div>
     <main>
@@ -54,12 +51,16 @@
     </main>
     <main>
         <div class="box">
-            <p>Choose to view categories: </p> 
-            <button><a href="..\categories\home.php"></a></button>
+            <p><h3>To place Order: </h3></p> 
+            <button><a href="..\orders\takeorder.php"><p><h3>To place Order: </h3></p></a></button>
         </div>
+    </main>
+    <main>
         <div class="box">
-            <p>Choose to view products: </p> 
-            <button><a href="..\products\home.php"></a></button>
+            <button><a href="..\categories\home.php"><p>Choose to view categories: </p></a></button>
+        </div>
+        <div class="box"> 
+            <button><a href="..\products\home.php"><p>Choose to view products: </p></a></button>
         </div>
     </main>
 </body>

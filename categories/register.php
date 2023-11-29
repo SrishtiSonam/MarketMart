@@ -15,64 +15,43 @@
          
          include("../php/config.php");
          if(isset($_POST['submit'])){
-            $username = $_POST['username'];
-            $email = $_POST['email'];
-            $age = $_POST['age'];
-            $password = $_POST['password'];
-
-         //verifying the unique email
-
-         $verify_query = mysqli_query($con,"SELECT Email FROM users WHERE Email='$email'");
-
-         if(mysqli_num_rows($verify_query) !=0 ){
-            echo "<div class='message'>
-                      <p>This email is used, Try another One Please!</p>
-                  </div> <br>";
-            echo "<a href='javascript:self.history.back()'><button class='btn'>Go Back</button>";
-         }
-         else{
-
-            mysqli_query($con,"INSERT INTO users(Username,Email,Age,Password) VALUES('$username','$email','$age','$password')") or die("Erroe Occured");
-
-            echo "<div class='message'>
-                      <p>Registration successfully!</p>
-                  </div> <br>";
-            echo "<a href='login.php'><button class='btn'>Login Now</button>";
-         
-
-         }
-
+            $categoryid = $_POST['categoryid'];
+            $categoryname = $_POST['categoryname'];
+            $availability = $_POST['availability'];
+            $verify_query = mysqli_query($con,"select categoryid from categories where categoryid='$categoryid'");
+            if(mysqli_num_rows($verify_query) !=0 ){
+                echo "<div class='message'>
+                        <p>Item with same category id already exist!</p>
+                      </div> <br>";
+                echo "<a href='javascript:self.history.back()'><button class='btn'>Go Back</button>";
+            }else{
+                mysqli_query($con,"insert into categories(categoryid, categoryname, availability) values ('$categoryid','$categoryname','$availability')") or die("Erroe Occured");
+                echo "<div class='message'>
+                          <p>Added successfully!</p>
+                      </div> <br>";
+                echo "<a href='home.php'><button class='btn'>View all Categories</button>";
+            }
          }else{
-         
         ?>
-
-            <header>Sign Up</header>
+            <header>Add categories</header>
             <form action="" method="post">
                 <div class="field input">
-                    <label for="username">Username</label>
-                    <input type="text" name="username" id="username" autocomplete="off" required>
-                </div>
-
-                <div class="field input">
-                    <label for="email">Email</label>
-                    <input type="text" name="email" id="email" autocomplete="off" required>
-                </div>
-
-                <div class="field input">
-                    <label for="age">Age</label>
-                    <input type="number" name="age" id="age" autocomplete="off" required>
+                    <label for="categoryid">Category Id</label>
+                    <input type="text" name="categoryid" id="categoryid" autocomplete="off" required>
                 </div>
                 <div class="field input">
-                    <label for="password">Password</label>
-                    <input type="password" name="password" id="password" autocomplete="off" required>
+                    <label for="categoryname">Category Name</label>
+                    <input type="text" name="categoryname" id="categoryname" autocomplete="off" required>
                 </div>
-
+                <div class="field input">
+                    <label for="availability">Availability</label>
+                    <input type="number" name="availability" id="availability" autocomplete="off" required>
+                </div>
                 <div class="field">
-                    
                     <input type="submit" class="btn" name="submit" value="Register" required>
                 </div>
                 <div class="links">
-                    Already a member? <a href="login.php">Sign In</a>
+                    View list of categories <a href="home.php">Home Page</a>
                 </div>
             </form>
         </div>

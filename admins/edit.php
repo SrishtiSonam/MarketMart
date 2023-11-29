@@ -17,12 +17,12 @@
 <body>
     <div class="nav">
         <div class="logo">
-            <p><a href="home.php"> Logo</a></p>
+            <p><a href="home.php"> MarketMart</a></p>
         </div>
 
         <div class="right-links">
             <a href="#">Change Profile</a>
-            <a href="php/logout.php"> <button class="btn">Log Out</button> </a>
+            <a href="../php/logout.php"> <button class="btn">Log Out</button> </a>
         </div>
     </div>
     <div class="container">
