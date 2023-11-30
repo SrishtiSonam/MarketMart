@@ -2,7 +2,7 @@
    session_start();
    include("../php/connection.php");
    if(!isset($_SESSION['valid'])){
-    header("Location: login.php");
+        header("Location: login.php");
    }
     $updatePriceForOne = "update requests join products on requests.productid = products.productid set requests.priceforone = products.price";
     mysqli_query($con, $updatePriceForOne);
@@ -56,14 +56,20 @@
                         </tr>";
                     }
                     echo "</table>";
-                    $total = "select SUM(priceforall) as totalsum from requests";
-                    $result = mysqli_query($con, $total);
+                    $totalamt = "select SUM(priceforall) as totalsum from requests";
+                    $result1 = mysqli_query($con, $totalamt);
+                    $totalitem = "select SUM(orderquantity) as totalitem from requests";
+                    $result2 = mysqli_query($con, $totalitem);
                     if ($result) {
-                        $row = $result->fetch_assoc();
-                        $sum = $row['totalsum'];
+                        $row1 = $result1->fetch_assoc();
+                        $sum = $row1['totalsum'];
+                        $row2 = $result2->fetch_assoc();
+                        $quan = $row2['totalitem'];
                         echo "<div class='message'>
-                            <p>The total amount is $sum</p>
-                        </div> <br>";
+                                <p>The total amount is $sum for $quan items.</p>
+                                <p>Current Date: " . date('Y-m-d') . " and Current Time: " . date('H:i:s') . "</p>
+                              </div> <br>";
+                              mysqli_query($con, "insert into orders (quantity, totalamount, date, time) VALUES ('$quan', '$sum', CURDATE(), CURTIME())") or die("Error Occurred");
                     } else {
                         echo "<div class='message'>
                             <p>Error while fetching the record!!</p>
