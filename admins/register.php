@@ -13,7 +13,7 @@
 
         <?php 
          
-         include("../php/config.php");
+         include("../php/connection.php");
          if(isset($_POST['submit'])){
             $username = $_POST['Username'];
             $firstname = $_POST['firstname'];

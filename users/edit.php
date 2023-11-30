@@ -1,6 +1,6 @@
 <?php 
    session_start();
-   include("../php/config.php");
+   include("../php/connection.php");
    if(!isset($_SESSION['valid'])){
     header("Location: login.php");
    }
@@ -17,7 +17,7 @@
 <body>
     <div class="nav">
         <div class="logo">
-            <p><a href="home.php"> MarketMart</a></p>
+            <p><a href="../index.php"> MarketMart</a></p>
         </div>
 
         <div class="right-links">
@@ -36,8 +36,7 @@
                 $age = $_POST['age'];
                 $password = $_POST['Password'];
                 $id = $_SESSION['id'];
-                $edit_query = mysqli_query($con,"update userinfo set username='$username', firstname='$firstname', lastname='$lastname', email='$email', age='$age' where id=$id ") or die("error occurred");
-                $edit_query = mysqli_query($con,"update logindata set password='$password' where email='$email' ") or die("error occurred");
+                $edit_query = mysqli_query($con,"update userinfo set username='$username', firstname='$firstname', lastname='$lastname', email='$email', age='$age', password='$password' where id=$id ") or die("error occurred");
                 if($edit_query){
                     echo "<div class='message'>
                         <p>Profile Updated!</p>
@@ -53,10 +52,7 @@
                     $res_Lname = $result['Lastname'];
                     $res_Email = $result['Email'];
                     $res_Age = $result['Age'];
-                    $query2 = mysqli_query($con,"select * from logindata where email='$res_Email' ");
-                    while($res = mysqli_fetch_assoc($query2)){
-                        $res_Password = $res['password'];
-                    }
+                    $res_Password = $result['password'];
                 }
             ?>
             <header>Change Profile</header>

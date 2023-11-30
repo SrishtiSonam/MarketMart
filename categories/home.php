@@ -1,6 +1,6 @@
 <?php 
    session_start();
-   include("../php/config.php");
+   include("../php/connection.php");
    if(!isset($_SESSION['valid'])){
     header("Location: login.php");
    }
@@ -17,7 +17,7 @@
 <body>
     <div class="nav">
         <div class="logo">
-            <p><a href="home.php">MarketMart</a> </p>
+            <p><a href="../index.php">MarketMart</a> </p>
         </div>
         <div class="right-links">
             <a href="../php/logout.php"> <button class="btn">Log Out</button> </a>
@@ -52,6 +52,7 @@
                         </tr>";
                     }
                     echo "</table>";
+                    echo "<a href='javascript:self.history.back()'><button class='btn'>Go Back</button>";
                 ?>
           </div>
        </div>

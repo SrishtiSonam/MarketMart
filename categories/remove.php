@@ -11,7 +11,7 @@
       <div class="container">
         <div class="box form-box">
         <?php 
-         include("../php/config.php");
+         include("../php/connection.php");
          if(isset($_POST['submit'])){
             $categoryid = $_POST['categoryid'];
             $verify_query = mysqli_query($con,"select categoryid from categories where categoryid='$categoryid'");

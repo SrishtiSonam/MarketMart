@@ -13,7 +13,7 @@
     <div class="container">
         <div class="box form-box">
         <?php 
-            include("../php/config.php");
+            include("../php/connection.php");
             if(isset($_POST['submit'])){
                 $username = $_POST['username'];
                 $firstname = $_POST['firstname'];
@@ -21,15 +21,14 @@
                 $email = $_POST['email'];
                 $age = $_POST['age'];
                 $password = $_POST['password'];
-                $verify_query = mysqli_query($con,"select email from logindata where email='$email'");
+                $verify_query = mysqli_query($con,"select email from userinfo where email='$email'");
                 if(mysqli_num_rows($verify_query) !=0 ){
                     echo "<div class='message'>
                         <p>This email is used, Try another One Please!</p>
                         </div> <br>";
                     echo "<a href='javascript:self.history.back()'><button class='btn'>Go Back</button>";
                 }else{
-                    mysqli_query($con,"insert into userinfo(username,firstname,lastname,email,age) VALUES('$username','$firstname','$lastname','$email','$age')") or die("Erroe Occured");
-                    mysqli_query($con,"insert into logindata(email,password) VALUES('$email','$password')") or die("Erroe Occured");
+                    mysqli_query($con,"insert into userinfo(username,firstname,lastname,email,age,password) VALUES('$username','$firstname','$lastname','$email','$age','$password')") or die("Erroe Occured");
                     echo "<div class='message'>
                         <p>Registration successfully!</p>
                         </div> <br>";

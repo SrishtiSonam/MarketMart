@@ -1,6 +1,6 @@
 <?php 
    session_start();
-   include("../php/config.php");
+   include("../php/connection.php");
    if(!isset($_SESSION['valid'])){
     header("Location: login.php");
    }
@@ -17,7 +17,7 @@
 <body>
     <div class="nav">
         <div class="logo">
-            <p><a href="home.php">MarketMart</a> </p>
+            <p><a href="../index.php">MarketMart</a> </p>
         </div>
         <div class="right-links">
             <a href="../php/logout.php"> <button class="btn">Log Out</button> </a>
@@ -40,8 +40,9 @@
             $result = mysqli_query($con, "select quantity from products where productid = '$productId'");
             $row = mysqli_fetch_assoc($result);
             $availableQuantity = (int)$row['quantity'];
+            $res = mysqli_query($con, "select * from requests where productid = '$productId'");
             if ($orderedQuantity > 0 && $orderedQuantity <= $availableQuantity) {
-                if (mysqli_num_rows($result)!=0){
+                if (mysqli_num_rows($res)!=0){
                     mysqli_query($con, "update requests set orderquantity = orderquantity + '$orderedQuantity' where productid = '$productId'");
                 }else{
                 mysqli_query($con, "insert into requests (productid, orderquantity) VALUES ('$productId', '$orderedQuantity')");
@@ -52,7 +53,7 @@
                 echo "Invalid ordered quantity. Please enter a valid quantity.";
             }
         }
-        $result = mysqli_query($con, "SELECT * FROM products");
+        $result = mysqli_query($con, "select * from products");
         echo "<form method='POST' action='".htmlspecialchars($_SERVER["PHP_SELF"]) . "'>";
         echo "<table class='Mytable'>";
         echo "<tr>

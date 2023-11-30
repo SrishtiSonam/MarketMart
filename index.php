@@ -1,3 +1,7 @@
+<?php
+      include("./php/connection.php");
+      mysqli_query($con, "delete from requests");
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

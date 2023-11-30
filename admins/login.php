@@ -15,7 +15,7 @@
         <div class="box form-box">
             <?php 
              
-              include("../php/config.php");
+              include("../php/connection.php");
               if(isset($_POST['submit'])){
                 $email = mysqli_real_escape_string($con,$_POST['email']);
                 $password = mysqli_real_escape_string($con,$_POST['password']);

@@ -13,7 +13,7 @@
 
         <?php 
          
-         include("../php/config.php");
+         include("../php/connection.php");
          if(isset($_POST['submit'])){
             $categoryid = $_POST['categoryid'];
             $categoryname = $_POST['categoryname'];

@@ -1,6 +1,6 @@
 <?php 
    session_start();
-   include("../php/config.php");
+   include("../php/connection.php");
    if(!isset($_SESSION['valid'])){
     header("Location: login.php");
    }
@@ -17,7 +17,7 @@
 <body>
     <div class="nav">
         <div class="logo">
-            <p><a href="home.php"> MarketMart</a></p>
+            <p><a href="../index.php"> MarketMart</a></p>
         </div>
 
         <div class="right-links">
