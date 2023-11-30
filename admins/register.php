@@ -33,14 +33,9 @@
                       <p>Registration successfully!</p>
                   </div> <br>";
             echo "<a href='login.php'><button class='btn'>Login Now</button>";
-         
-
          }
-
          }else{
-         
         ?>
-
             <header>Sign Up</header>
             <form action="" method="post">
                 <div class="field input">
@@ -63,9 +58,7 @@
                     <label for="password">Password</label>
                     <input type="password" name="password" id="password" autocomplete="off" required>
                 </div>
-
                 <div class="field">
-                    
                     <input type="submit" class="btn" name="submit" value="Register" required>
                 </div>
                 <div class="links">

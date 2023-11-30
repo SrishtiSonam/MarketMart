@@ -20,14 +20,10 @@
         <div class="logo">
             <p><a href="home.php">MarketMart</a> </p>
         </div>
-
         <div class="right-links">
-
-            <?php 
-            
+            <?php
             $id = $_SESSION['id'];
             $query = mysqli_query($con,"select * from admininfo where Id=$id");
-
             while($result = mysqli_fetch_assoc($query)){
                 $res_Uname = $result['Username'];
                 $res_id = $result['Id'];

@@ -2,10 +2,10 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    font-family: 'Poppins',sans-serif;
+    font-family: sans-serif;
 }
-body{
-    background: #e4e9f7;
+body {
+    background: url('backgroundimage.jpg') center/cover no-repeat;
 }
 .container{
     display: flex;
@@ -14,13 +14,14 @@ body{
     min-height: 90vh;
 }
 .box{
-    background: #fdfdfd;
+    background: #d7ff6aac;
     display: flex;
     flex-direction: column;
     padding: 25px 25px;
     border-radius: 20px;
     box-shadow: 0 0 128px 0 rgba(0,0,0,0.1),
                 0 32px 64px -48px rgba(0,0,0,0.5);
+    color: #000000;
 }
 .form-box{
     width: 450px;
@@ -30,7 +31,7 @@ body{
     font-size: 25px;
     font-weight: 600;
     padding-bottom: 10px;
-    border-bottom: 1px solid #e6e6e6;
+    border-bottom: 1px solid #000000;
     margin-bottom: 10px;
 }
 .form-box form .field{
@@ -50,7 +51,7 @@ body{
 }
 .btn{
     height: 35px;
-    background: rgba(76,68,182,0.808);
+    background: rgb(0, 221, 255);
     border: 0;
     border-radius: 5px;
     color: #fff;
@@ -125,9 +126,10 @@ main{
     padding:1rem; 
 }
 .Mytable{
-    padding-top: 2rem;
     text-align: center;
     margin: auto;
+    margin-top: 2rem;
+    background-color: antiquewhite;
 }
 @media only screen and (max-width:840px){
     .main-box .top{

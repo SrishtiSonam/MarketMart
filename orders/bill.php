@@ -4,7 +4,14 @@
    if(!isset($_SESSION['valid'])){
     header("Location: login.php");
    }
-?>
+
+    $updatePriceForOne = "update requests join products on requests.productid =        products.productid set requests.priceforone = products.price";
+    mysqli_query($con, $updatePriceForOne);
+    $updatePriceForAll = "update requests set priceforall = orderquantity * priceforone";
+    mysqli_query($con, $updatePriceForAll);
+
+    ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -47,6 +54,20 @@
                         </tr>";
                     }
                     echo "</table>";
+
+                    $total = "select SUM(priceforall) as totalsum from requests";
+                    $result = mysqli_query($con, $total);
+                    if ($result) {
+                        $row = $result->fetch_assoc();
+                        $sum = $row['totalsum'];
+                        "<div class='message'>
+                            <p>The total amount is $sum</p>
+                        </div> <br>"
+                    } else {
+                        "<div class='message'>
+                            <p>Error while fetching the record!!</p>
+                        </div> <br>"
+                    }
                 ?>
           </div>
        </div>

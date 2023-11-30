@@ -1,6 +1,6 @@
 <?php 
    session_start();
-   include("php/config.php");
+   include("../php/config.php");
    if(!isset($_SESSION['valid'])){
     header("Location: login.php");
    }
@@ -11,7 +11,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="../style/style.css">
     <title>Change Profile</title>
 </head>
 <body>
@@ -33,9 +33,9 @@
                 $firstname = $_POST['firstname'];
                 $lastname = $_POST['lastname'];
                 $email = $_POST['email'];
-                $password = $_POST['Password'];
+                $password = $_POST['password'];
                 $id = $_SESSION['id'];
-                $edit_query = mysqli_query($con,"update admininfo set adminposition='$adminposition', firstname='$firstname', lastname='$lastname', email='$email' where Id=$id ") or die("error occurred");
+                $edit_query = mysqli_query($con,"update admininfo set username='$adminposition', firstname='$firstname', lastname='$lastname', email='$email', password='$password' where Id=$id ") or die("error occurred");
                 if($edit_query){
                     echo "<div class='message'>
                     <p>Profile Updated!</p>
@@ -46,14 +46,11 @@
                 $id = $_SESSION['id'];
                 $query = mysqli_query($con,"select * from admininfo where Id=$id ");
                 while($result = mysqli_fetch_assoc($query)){
-                    $res_Adminpos = $result['adminposition'];
-                    $res_Fname = $result['firstname'];
-                    $res_Lname = $result['lastname'];
-                    $res_Email = $result['email'];
-                    $query2 = mysqli_query($con,"select * from logindata where email='$res_Email' ");
-                    while($res = mysqli_fetch_assoc($query2)){
-                        $res_Password = $res['password'];
-                    }
+                    $res_Adminpos = $result['Username'];
+                    $res_Fname = $result['Firstname'];
+                    $res_Lname = $result['Lastname'];
+                    $res_Email = $result['Email'];
+                    $res_Password = $result['password'];
                 }
             ?>
             <header>Change Profile</header>

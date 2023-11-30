@@ -52,15 +52,17 @@
     <main>
         <div class="box">
             <p><h3>To place Order: </h3></p> 
-            <button><a href="..\orders\takeorder.php"><p><h3>To place Order: </h3></p></a></button>
+            <button><a href="..\orders\takeorder.php"><p>Add to cart: </p></a></button>
         </div>
     </main>
     <main>
         <div class="box">
-            <button><a href="..\categories\home.php"><p>Choose to view categories: </p></a></button>
+        <p>Choose to view categories: </p>
+            <button><a href="..\categories\home.php"><p>Categories: </p></a></button>
         </div>
         <div class="box"> 
-            <button><a href="..\products\home.php"><p>Choose to view products: </p></a></button>
+        <p>Choose to view products: </p>
+            <button><a href="..\products\home.php"><p>Products: </p></a></button>
         </div>
     </main>
 </body>
