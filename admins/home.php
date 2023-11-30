@@ -55,23 +55,41 @@
     </main>
     <main>
         <div class="main-box">
+            <div class="top">
             <div class="box"> 
-                <button><a href="..\categories\home.php"><p>Choose to view the details of categories: </p></a></button>
+                <p>Choose to view the details of categories: </p>
+                <button><a href="..\categories\home.php">Click Me</a></button>
             </div>
             <div class="box">
-                <button><a href="..\categories\register.php"><p>Choose to add new categories: </p> </a></button>
+                <p>Choose to add new categories: </p>
+                <button><a href="..\categories\register.php">Click Me </a></button>
             </div>
             <div class="box">
-                <button><a href="..\categories\delete.php"><p>Choose to delete a categories: </p> </a></button>
+                <p>Choose to delete a categories: </p>
+                <button><a href="..\categories\delete.php">Click Me </a></button>
+            </div>
+            <div class="box">
+                <p>Choose to remove a categories: </p>
+                <button><a href="..\categories\remove.php">Click Me </a></button>
+            </div>
+            </div>
+            <div class="bottom">
+            <div class="box"> 
+                <p>Choose to view the details of products: </p>
+                <button><a href="..\products\home.php">Click Me</a></button>
             </div>
             <div class="box"> 
-                <button><a href="..\products\home.php"><p>Choose to view the details of products: </p></a></button>
+                <p>Choose to add new products: </p>
+                <button><a href="..\products\register.php">Click Me</a></button>
             </div>
             <div class="box"> 
-                <button><a href="..\products\register.php"><p>Choose to add new products: </p></a></button>
+                <p>Choose to delete a products: </p>
+                <button><a href="..\products\delete.php">Click Me</a></button>
             </div>
-            <div class="box"> 
-                <button><a href="..\products\delete.php"><p>Choose to delete a products: </p></a></button>
+            <div class="box">
+                <p>Choose to remove a product: </p>
+                <button><a href="..\products\remove.php">Click Me</a></button>
+            </div>
             </div>
         </div>
     </main>
