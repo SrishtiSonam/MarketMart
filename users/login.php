@@ -26,6 +26,7 @@
                     $_SESSION['username'] = $row['Username'];
                     $_SESSION['age'] = $row['Age'];
                     $_SESSION['id'] = $row['Id'];
+                    mysqli_query($con, "delete from requests");
                 }else{
                     echo "<div class='message'>
                       <p>Wrong Username or Password</p>
