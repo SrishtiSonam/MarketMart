@@ -1,6 +1,5 @@
 <?php 
    session_start();
-
    include("../php/connection.php");
    if(!isset($_SESSION['valid'])){
     header("Location: login.php");
@@ -86,6 +85,15 @@
                 <p>Choose to remove a product: </p>
                 <button><a href="..\products\remove.php">Click Me</a></button>
             </div>
+            </div>
+        </div>
+    </main>
+    <main>
+        <div class="main-box">
+            <h3>Order History</h3>
+            <div class="box"> 
+                <p>Choose to view all the orders made earlier: </p>
+                <button><a href="..\orders\listoforders.php">Click Me</a></button>
             </div>
         </div>
     </main>

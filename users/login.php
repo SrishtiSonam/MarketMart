@@ -13,7 +13,6 @@
 <body>
       <div class="container">
         <div class="box form-box">
-            
             <?php  
               include("../php/connection.php");
               if(isset($_POST['submit'])){
