@@ -45,7 +45,7 @@
                 </div>
                 <div class="field input">
                     <label for="availability">Availability [Y/N]</label>
-                    <input type="number" name="availability" id="availability" autocomplete="off" required>
+                    <input type="text" name="availability" id="availability" autocomplete="off" required>
                 </div>
                 <div class="field">
                     <input type="submit" class="btn" name="submit" value="Register" required>

@@ -16,7 +16,7 @@
             $productid = $_POST['productid'];
             $productname = $_POST['productname'];
             $categoryid = $_POST['categoryid'];
-            $price = $_POST['price'];
+            $price = int($_POST['price']);
             // $image = $_POST['image'];
             $discription = $_POST['discription'];
             $quantity = $_POST['quantity'];

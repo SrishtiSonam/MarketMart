@@ -29,18 +29,16 @@
             <div class="box">
                 <p><b>Let the Shopping Begin</b></p>
             </div>
-            <div class="box">
-                <p><a href="bill.php"> To grab your receipt, simply click here. <br>Your bill is waiting for you!</a></p>
-            </div>
         </div>
         <?php
             if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            $productId = $_POST['product_id'];
-            $orderedQuantity = $_POST['ordered_quantity'];
-            $result = mysqli_query($con, "select quantity from products where productid = '$productId'");
-            $row = mysqli_fetch_assoc($result);
-            $availableQuantity = (int)$row['quantity'];
-            $res = mysqli_query($con, "select * from requests where productid = '$productId'");
+                $productId = $_POST['product_id'];
+                $orderedQuantity = $_POST['ordered_quantity'];
+                $result = mysqli_query($con, "select quantity from products where productid = '$productId'");
+                $row = mysqli_fetch_assoc($result);
+                $availableQuantity = $row['quantity'];
+                $res = mysqli_query($con, "select * from requests where productid = '$productId'");
+                // echo "$productId";
             if ($orderedQuantity > 0 && $orderedQuantity <= $availableQuantity) {
                 if (mysqli_num_rows($res)!=0){
                     mysqli_query($con, "update requests set orderquantity = orderquantity + '$orderedQuantity' where productid = '$productId'");
@@ -53,10 +51,11 @@
                 echo "Invalid ordered quantity. Please enter a valid quantity.";
             }
         }
+
         $result = mysqli_query($con, "select * from products");
-        echo "<form method='POST' action='".htmlspecialchars($_SERVER["PHP_SELF"]) . "'>";
-        echo "<table class='Mytable'>";
-        echo "<tr>
+
+echo "<table class='Mytable'>";
+echo "<tr>
         <th>ID</th>
         <th>Product ID</th>
         <th>Product Name</th>
@@ -67,8 +66,10 @@
         <th>Order Quantity</th>
         <th>Action</th>
         </tr>";
-        while ($row = mysqli_fetch_assoc($result)) {
-            echo "<tr>
+
+while ($row = mysqli_fetch_assoc($result)) {
+    echo "<form method='POST' action='".htmlspecialchars($_SERVER["PHP_SELF"]) . "'>";
+    echo "<tr>
             <td>{$row['Id']}</td>
             <td>{$row['productid']}</td>
             <td>{$row['productname']}</td>
@@ -80,7 +81,13 @@
             <td><input type='submit' value='Place Request'>
                 <input type='hidden' name='product_id' value='{$row['productid']}'></td>
             </tr>";
-        }
-        echo "</table>";
-        echo "</form>";
+    echo "</form>";
+}
+echo "</table>";
 ?>
+<div class="main-box">
+    <div class="box">
+        <p> To grab your receipt, simply click here. <br>Your bill is waiting for you!</p>
+        <p><a href="bill.php"> Your bill!</a></p>
+    </div>
+</div>
